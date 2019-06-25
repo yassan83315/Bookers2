@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track':'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track':'reload' %>
+  </head>
+
+  <body>
+    <div class="container" style=" width: 100%;">
+      <div class="row" style="background-color: black; height: 75px;">
+        <span style="font-size: 24px; color: #ffffff; padding-left: 200px; margin-top: 5px; width: 400px;">Bookers</span>
+        <div class="headmenu">
+          <div style="text-align: right;">
+          <ul class="navbar" style="padding-right: 50px;">
+            <% if user_signed_in? %>
+              <span style="padding: 0 30px;">
+                <%= link_to " Home ", user_path(current_user), class: " btn btn-link glyphicon glyphicon-home", :style=>"color:#fff;" %>
+              </span>
+              <span style="padding: 0 30px;">
+                <%= link_to " Users", users_path, class: " btn btn-link glyphicon glyphicon-user" , :style=>"color:#fff;"%>
+              </span>
+              <span style="padding: 0 30px;">
+                <%= link_to " Books", books_path, class: "btn btn-link glyphicon glyphicon-book", :style=>"color:#fff;" %>
+              </sapn>
+              <span style="padding: 0 30px;">
+                <%= link_to " logout", destroy_user_session_path, method: :delete, class: "btn btn-link glyphicon glyphicon-log-out", :style=>"color:#fff;" %>
+              </span>
+            <% else %>
+              <span style="padding: 0 30px;">
+                <%= link_to " Home", root_path, class: "btn btn-link glyphicon glyphicon-home", :style=>"color:#fff;" %>
+              </span>
+              <span style="padding: 0 30px;">
+                <%= link_to " About", home_about_path, class: "btn btn-link glyphicon glyphicon-link", :style=>"color:#fff;" %>
+              </span>
+              <span style="padding: 0 30px;">
+                <%= link_to " Sign up", new_user_registration_path, class: "btn btn-link glyphicon glyphicon-edit", :style=>"color:#fff;" %>
+              </span>
+              <span style="padding: 0 30px;">
+                <%= link_to " login", new_user_session_path, class: "btn btn-link glyphicon glyphicon-log-in", :style=>"color:#fff;" %>
+              </span>
+            <% end %>
+          </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= yield %>
+      <div style="text-align: right;">
+        <footer style="padding: 20px;">CopyRight Infratop.inc</footer>
+      </div>
+  </body>
+</html>

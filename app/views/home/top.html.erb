@@ -1,0 +1,21 @@
+<% if flash[:notice] %>
+		<%= flash[:notice] %>
+	<% end %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-offset-4 col-log-6">
+			<h2>Welcome to <strong><div class="glyphicon glyphicon-book">Boookers !!</strong>
+			</h2>
+			<p>In <strong>Bookers</strong>,<br>
+			you can share and exchang your opinions, inpressions, and emotions<br>about varioius books!
+			</p>
+				<div style="width: 55%;">
+				    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-info", :style=>"width: 100%;" %>
+				</div>
+				<div style="width: 55%;">
+					<%= link_to "login", new_user_session_path, class: "btn btn-success", :style=>"width: 100%;" %>
+			</div>
+		</div>
+	</div>
+</div>
